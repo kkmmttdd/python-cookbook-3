@@ -1,5 +1,6 @@
 from collections import deque
 from typing import TextIO
+import operator
 
 print('========== 1.3 history (with generator)')
 
@@ -36,10 +37,10 @@ with open('some.txt', 'r') as f:
     for current, s in search(f, 'python'):
         print(current, s)
 
-
 print('============ 1.5 prioty queue')
 
 import heapq
+
 
 class PQ:
     def __init__(self):
@@ -74,7 +75,6 @@ h.pop()
 
 print('=========== 1.8 calculate dictiornaly')
 
-
 prices = {
     'a': 1,
     'b': 102,
@@ -85,4 +85,20 @@ prices = {
 inversed = zip(prices.values(), prices.keys())
 
 print(max(inversed)[1])
+
+print('=========== 1.13 one line getter =============')
+
+dict_ = {1: 3}
+item_getter = operator.itemgetter(1)
+print(item_getter(dict_))
+object_getter = operator.attrgetter('__class__')
+print(object_getter(1))
+caller = operator.methodcaller('__str__')
+print(caller(1))
+
+print('============= 1.16 filtering with generator')
+gen = (print(i) for i in [1, 2, 3])
+next(gen)
+next(gen)
+next(gen)
 
