@@ -71,3 +71,18 @@ h.push(Item('wwwww'), 2)
 h.pop()
 h.pop()
 h.pop()
+
+print('=========== 1.8 calculate dictiornaly')
+
+
+prices = {
+    'a': 1,
+    'b': 102,
+    'c': 13,
+    'd': 14,
+}
+
+inversed = zip(prices.values(), prices.keys())
+
+print(max(inversed)[1])
+
